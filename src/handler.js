@@ -12,6 +12,7 @@ const addNoteHandler = (request, h) => {
     title,
     tags,
     body,
+    id,
     createdAt,
     updatedAt,
   };
@@ -73,17 +74,17 @@ const editNoteByIdHandler = (request, h) => {
   const { id } = request.params;
 
   const { title, tags, body } = request.payload;
-  const updateAt = new Date().toISOString();
+  const updatedAt = new Date().toISOString();
 
   const index = notes.findIndex((note) => note.id === id);
 
   if (index !== -1) {
-    note[index] = {
+    notes[index] = {
       ...notes[index],
       title,
       tags,
       body,
-      updateAt,
+      updatedAt,
     };
 
     const response = h.response({
@@ -119,7 +120,7 @@ const deleteNoteByIdHandler = (request, h) => {
 
   const response = h.response({
     status: "fail",
-    message: "Catatan gagalh dihapus. Id tidak ditemukan",
+    message: "Catatan gagal dihapus. Id tidak ditemukan",
   });
   response.code(404);
   return response;
