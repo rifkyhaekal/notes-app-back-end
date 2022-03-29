@@ -9,6 +9,9 @@
     "ecmaVersion": "latest"
   },
   "rules": {
-    "no-console": "off"
+    "no-console": "off",
+    "linebreak-style": ["error", "windows"],
+    "eol-last": ["error", "never"],
+    "no-multiple-empty-lines": ["error", { "max": 1, "maxEOF": 0 }]
   }
 }
