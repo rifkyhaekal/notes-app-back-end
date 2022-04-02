@@ -32,12 +32,17 @@ const routes = (handler) => [
     },
   },
   {
-    method: 'Delete',
+    method: 'DELETE',
     path: '/notes/{id}',
     handler: handler.deleteNoteByIdHandler,
     options: {
       auth: 'notesapp_jwt',
     },
+  },
+  {
+    method: 'GET',
+    path: '/users',
+    handler: handler.getUsersByUsernameHandler,
   },
 ];
 
